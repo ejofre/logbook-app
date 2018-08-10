@@ -52,7 +52,7 @@ public class NoteServiceTest {
         notes.add(n3);
 
         when(noteRepositoryMock.findAll()).thenReturn(notes);
-        when(noteRepositoryMock.findById(1L)).thenReturn(java.util.Optional.ofNullable(n1));
+        // when(noteRepositoryMock.findById(1L)).thenReturn(java.util.Optional.ofNullable(n1));
         // when(noteRepositoryMock.save(new Note())).thenReturn(notes.add( new Note() ));
 
 
