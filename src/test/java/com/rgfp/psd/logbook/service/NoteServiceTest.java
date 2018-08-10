@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,9 @@ public class NoteServiceTest {
         notes.add(n3);
 
         when(noteRepositoryMock.findAll()).thenReturn(notes);
+        when(noteRepositoryMock.findById(1L)).thenReturn(java.util.Optional.ofNullable(n1));
+        // when(noteRepositoryMock.save(new Note())).thenReturn(notes.add( new Note() ));
+
 
         noteService = new NoteService();
         noteService.setNoteRepository(noteRepositoryMock);
@@ -141,5 +145,40 @@ public class NoteServiceTest {
         assertEquals(-1, topWords.indexOf("more"));
 
     }
+
+    /*
+    @Test
+    public void clonePruebaCantidad()
+    {
+        // ejecuto
+        noteService.cloneNote(new Long(1L));
+        int cantidad = noteService.findAll().size();
+
+        //Comparo
+        assertEquals(4, cantidad);
+
+    }
+    */
+
+
+    /*
+    @Test
+    public void clonePruebaContenido()
+    {
+        // ejecuto
+        noteService.cloneNote(new Long(1L));
+
+        // Obtengo la ultima
+        Note ultimaNota = noteService.findAll().get(3);
+
+        // Obtengo el contenido
+        String contenido = ultimaNota.getContent();
+
+
+        //Comparo
+        assertEquals("First note, with words java spring automation.", contenido);
+
+    }
+    */
 
 }

@@ -53,7 +53,25 @@ public class Note {
     }
 
     public String getSummary() {
-        // not implemented
-        return "";
+        String resultado="";
+
+        // Se previene el nulo
+        if (this.content!=null)
+        {
+            // Si es menor o igual a 10 caracteres se retorna toda la cadena
+            if (content.length() <= 10)
+            {
+                resultado=content;
+            }
+
+            else
+            {
+                resultado= content.substring(0, 10);
+            }
+        }
+
+
+
+        return resultado;
     }
 }
